@@ -1,0 +1,6 @@
+.vs
+*.pyc
+__pycache__
+*.pyproj
+*.pyperf
+*.sln
