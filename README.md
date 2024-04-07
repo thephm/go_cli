@@ -33,7 +33,7 @@ Option | Description
 
 ## Mock diagram
 
-![](media/GO API Diagram.png)
+![](media/go_api_diagram.png)
 
 ## Things to look at
 
