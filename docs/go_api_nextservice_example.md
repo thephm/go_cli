@@ -1,6 +1,6 @@
 `python3 go_cli.py -k #### -s AP`
 
-```json
+```
 {
 	'Metadata': {
 		'TimeStamp': '2024-04-07 19:47:35', 
@@ -159,7 +159,7 @@
 
 - about 18 minutes later
 
-```json
+```
 {
 	'Metadata': {
 		'TimeStamp': '2024-04-07 20:05:31', 
