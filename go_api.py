@@ -12,6 +12,9 @@
 #
 # -----------------------------------------------------------------------------
 
+import go_train
+import go_bus
+
 GO_API_BASE = "http://api.openmetrolinx.com/OpenDataAPI/api/V1/"
 
 KEY_FIELD = "?key="
@@ -48,10 +51,6 @@ TOO_MANY_REQUESTS = 429 # key's use limit has been reached
 INTERNAL_ERROR = 500 # Internal Server Error. There is an issue. Please post on the developers forums so the issue can be resolved.
 UNAVAILABLE = 503  # Open data servers are down or overloaded with requests. Try again later.
 TIMEOUT = 504      # A server did not respond. Try again later.
-
-# Service Types
-SERVICE_TYPE_TRAIN = "T"
-SERVICE_TYPE_BUS = "B"
 
 # ScheduleJourney uses these (and "B")
 SERVICE_TYPE_RAIL = "R"
@@ -102,17 +101,23 @@ IS_MAJOR_STOP = 1
 IS_NOT_MAJOR_STOP = 0 # Minor stop
 
 # Location type descriptions in "Stop" 
-BUS_STOP = "Bus Stop"
-BUS_TERMINAL = "Bus Terminal"
-CARPOOL_LOT = "Carpool Lot"
+# BUS_STOP = "Bus Stop" - defined in `go_bus.py`
+# BUS_TERMINAL = "Bus Terminal" - defined in `go_bus.py`
+# CARPOOL_LOT = "Carpool Lot" - defined in `go_bus.py`
 GO_TERMINAL = "GO Terminal"
-PARK_AND_RIDE = "Park & Ride"
+# PARK_AND_RIDE = "Park & Ride" - defined in `go_bus.py`
 GO_PARK_AND_RIDE = "GO Park & Ride"
-TRAIN_STATION = "Train Station"
+# TRAIN_STATION = "Train Station" - defined in `go_stations.py`
 TICKET_AGENCY = "Ticket Agency"
-TRAIN_AND_BUS_STATION = "Train & Bus Station"
+# TRAIN_AND_BUS_STATION = "Train & Bus Station" - defined in `go_stations.py` and `go_bus.py`
 TICKET_AGENCY_AND_STOP = "Ticket Agency & Stop"
 TICKET_AGENCY_AND_TERMINAL = "Ticket Agency & Terminal"
+
+LocationTypes = [go_bus.BUS_STOP, go_bus.BUS_TERMINAL, go_bus.CARPOOL_LOT,
+                 GO_TERMINAL, go_bus.PARK_AND_RIDE, GO_PARK_AND_RIDE,
+                 go_train.TRAIN_STATION, TICKET_AGENCY, 
+                 go_train.TRAIN_AND_BUS_STATION, TICKET_AGENCY_AND_STOP,
+                 TICKET_AGENCY_AND_TERMINAL]
 
 # Location types (not returned, here for reference)
 BUS_STOP_CODE = "BS"
@@ -131,131 +136,10 @@ TICKET_AGENCY_AND_TERMINAL_CODE = "TT"
 DISRUPTION = "Service Disruption"
 DISRUPTION_SUSPENSION = "Train Service Suspension"
 
-SERVICE_ALERT_INIT = "INIT" # Initial
-SERVICE_ALERT_CORR = "CORR" # Corrected
+SERVICE_ALERT_INIT = "INIT"   # Initial
+SERVICE_ALERT_CORR = "CORR"   # Corrected
 SERVICE_ALERT_FINAL = "FINAL" # Final
-SERVICE_ALERT_UPD = "UPD" # Updated
-
-# Line Codes used in ServiceAlertAll
-LINE_CODE_LAKESHORE_WEST = "LW"
-LINE_CODE_LAKESHORE_EAST = "LE"
-LINE_CODE_KITCHENER = "GT"
-LINE_CODE_STOUFVILLE = "ST"
-LINE_CODE_RICHMOND_HILL = "RH"
-LINE_CODE_BARRIE = "BI"
-LINE_CODE_MILTON = "MI"
-
-# Line colours used in ScheduleJourney
-LINE_COLOUR_LAKESHORE_EAST = "#FF0D00"
-LINE_COLOUR_LAKESHORE_WEST = "#98002E"
-LINE_COLOUR_BARRIE = "#003767"
-LINE_COLOUR_MILTON = "#F57F25"
-LINE_COLOUR_KITCHENER = "#00853E"
-LINE_COLOUR_STOUFVILLE = "#794500"
-LINE_COLOUR_RICHMOND_HILL = "#0099C7"
-
-# Stop Codes
-UNION = "UN"
-TBD = "SR"
-TBD2 = "ME"
-TBD3 = "BO"
-STOP_CODE_TBD = "00139" 
-STOP_CODE_TBD1 = "02408"
-STOP_CODE_TBD2 = "02646"
-STOP_CODE_TBD3 = "02404"
-
-# https://www.gotransit.com/en/find-a-station-or-stop/ex/station-details
-
-# Lakeshore West Line
-EXHIBITION_GO = "EX"   # https://www.gotransit.com/en/find-a-station-or-stop/ex
-MIMICO_GO = "MI"       # https://www.gotransit.com/en/find-a-station-or-stop/mi
-LONG_BRANCH_GO = "LO"  # https://www.gotransit.com/en/find-a-station-or-stop/lo
-PORT_CREDIT_GO = "PO"  # https://www.gotransit.com/en/find-a-station-or-stop/po
-CLARKSON_GO = "CL"     # https://www.gotransit.com/en/find-a-station-or-stop/cl
-OAKVILLE_GO = "OA"     # https://www.gotransit.com/en/find-a-station-or-stop/oa
-BRONTE_GO = "BO"       # https://www.gotransit.com/en/find-a-station-or-stop/bo
-APPLEBY_GO = "AP"      # https://www.gotransit.com/en/find-a-station-or-stop/ap
-BURLINGTON_GO = "BU"   # https://www.gotransit.com/en/find-a-station-or-stop/bu
-ALDERSHOT_GO = "AL"    # https://www.gotransit.com/en/find-a-station-or-stop/al
-HAMILTON_GO = "HA"     # https://www.gotransit.com/en/find-a-station-or-stop/ha
-WEST_HARBOUR_GO = "WR" # https://www.gotransit.com/en/find-a-station-or-stop/wr
-ST_CATHARINES_GO = "SCTH" # https://www.gotransit.com/en/find-a-station-or-stop/scth - Via
-NIAGARA_FALLS_GO = "NI"   # https://www.gotransit.com/en/find-a-station-or-stop/ni - Via
-
-# Lakeshore East Line
-
-DANFORTH_GO = "DA"     # https://www.gotransit.com/en/find-a-station-or-stop/da
-SCARBOROUGH_GO = "SC"  # https://www.gotransit.com/en/find-a-station-or-stop/sc
-EGLINGTON_GO = "EG"    # https://www.gotransit.com/en/find-a-station-or-stop/eg
-GUILDWOOD_GO = "GU"    # https://www.gotransit.com/en/find-a-station-or-stop/gu
-ROUGE_HILL_GO = "RO"   # https://www.gotransit.com/en/find-a-station-or-stop/ro
-PICKERING_GO = "PIN"   # https://www.gotransit.com/en/find-a-station-or-stop/pin
-AJAX_GO = "AJ"         # https://www.gotransit.com/en/find-a-station-or-stop/aj
-WHITBY_GO = "WH"       # https://www.gotransit.com/en/find-a-station-or-stop/wh
-OSHAWA_GO = "OS"       # https://www.gotransit.com/en/find-a-station-or-stop/os Durham College Oshawa GO
-
-UNION_STATION = "USTN" # https://www.gotransit.com/en/find-a-station-or-stop/un
-
-# Barrie Line
-
-DOWNSVIEW_GO = "DW"    # https://www.gotransit.com/en/find-a-station-or-stop/dw
-RUTHERFORD_GO = "RU"   # https://www.gotransit.com/en/find-a-station-or-stop/ru
-MAPLE_GO = "MP"        # https://www.gotransit.com/en/find-a-station-or-stop/mp
-KING_CITY_GO = "KC"    # https://www.gotransit.com/en/find-a-station-or-stop/kc
-AURORA_GO = "AU"       # https://www.gotransit.com/en/find-a-station-or-stop/au
-NEWMARKET_GO = "NE"    # https://www.gotransit.com/en/find-a-station-or-stop/ne
-EAST_GWILLIMBURY_GO = "EA" # https://www.gotransit.com/en/find-a-station-or-stop/ea
-BRADFORD_GO = "BD"     # https://www.gotransit.com/en/find-a-station-or-stop/bd
-BARRIE_SOUTH_GO = "BA" # https://www.gotransit.com/en/find-a-station-or-stop/ba
-ALLANDALE_WATERFRONT_GO = "AD" # https://www.gotransit.com/en/find-a-station-or-stop/ad
-
-# Kitchener Line has 11 Stops
-
-BLOOR_GO = "BL"      # https://www.gotransit.com/en/find-a-station-or-stop/bl
-WESTON_GO = "WE"     # https://www.gotransit.com/en/find-a-station-or-stop/we
-ETOBICOKE_NORTH_GO = "ET" # https://www.gotransit.com/en/find-a-station-or-stop/et
-MALTON_GO = "MA"     # https://www.gotransit.com/en/find-a-station-or-stop/ma
-BRAMALEA_GO = "BE"   # https://www.gotransit.com/en/find-a-station-or-stop/be
-BRAMPTON_GO = "BR"   # https://www.gotransit.com/en/find-a-station-or-stop/br Brampton Innovation District GO
-MOUNT_PLEASANT_GO = "MO" # https://www.gotransit.com/en/find-a-station-or-stop/mo
-GEORGETOWN_GO = "GE" # https://www.gotransit.com/en/find-a-station-or-stop/ge
-ACTON_GO = "AC"      # https://www.gotransit.com/en/find-a-station-or-stop/ac
-GUELPH_GO = "GL"     # https://www.gotransit.com/en/find-a-station-or-stop/gl Guelph Central GO
-KITCHENER_GO = "KI"  # https://www.gotransit.com/en/find-a-station-or-stop/ki
-
-# Milton Line
-
-KIPLING_GO = "KP"      # https://www.gotransit.com/en/find-a-station-or-stop/kp
-DIXIE_GO = "DI"        # https://www.gotransit.com/en/find-a-station-or-stop/di
-COOKSVILLE_GO = "CO"   # https://www.gotransit.com/en/find-a-station-or-stop/co
-ERINDALE_GO = "ER"     # https://www.gotransit.com/en/find-a-station-or-stop/er
-STREETSVILLE_GO = "SR" # https://www.gotransit.com/en/find-a-station-or-stop/sr
-MEADOWVALE_GO = "ME"   # https://www.gotransit.com/en/find-a-station-or-stop/me
-LISGAR_GO = "LS"       # https://www.gotransit.com/en/find-a-station-or-stop/ls
-MILTON_GO = "ML"       # https://www.gotransit.com/en/find-a-station-or-stop/ml
-
-# Richmond Hill Line
-
-ORIOLE_GO = "OR"        # https://www.gotransit.com/en/find-a-station-or-stop/or
-OLD_CUMMER_GO = "OL"    # https://www.gotransit.com/en/find-a-station-or-stop/ol
-LANGSTAFF_GO = "LA"     # https://www.gotransit.com/en/find-a-station-or-stop/la
-RICHMOND_HILL_GO = "RI" # https://www.gotransit.com/en/find-a-station-or-stop/ri
-GORMLEY_GO = "GO"       # https://www.gotransit.com/en/find-a-station-or-stop/go
-BLOOMINGTON_GO = "BM"   # https://www.gotransit.com/en/find-a-station-or-stop/bm
-
-# Stouffville Line
-
-# DANFORTH_GO = "DA"
-SCARBOROUGH_GO = "SC"  # https://www.gotransit.com/en/find-a-station-or-stop/sc
-KENNEDY_GO = "KE"      # https://www.gotransit.com/en/find-a-station-or-stop/ke
-AGINCOURT_GO = "AG"    # https://www.gotransit.com/en/find-a-station-or-stop/ag
-MILLIKEN_GO = "MK"     # https://www.gotransit.com/en/find-a-station-or-stop/mk
-UNIONVILLE_GO = "UI"   # https://www.gotransit.com/en/find-a-station-or-stop/ui
-CENTENNIAL_GO = "CE"   # https://www.gotransit.com/en/find-a-station-or-stop/ce
-MARKHAM_GO = "MR"      # https://www.gotransit.com/en/find-a-station-or-stop/mr
-MOUNT_JOY_GO = "MJ"    # https://www.gotransit.com/en/find-a-station-or-stop/mj
-STOUFFVILLE_GO = "ST"  # https://www.gotransit.com/en/find-a-station-or-stop/st
-OLD_ELM_GO = "LI"      # https://www.gotransit.com/en/find-a-station-or-stop/li
+SERVICE_ALERT_UPD = "UPD"     # Updated
 
 # Flags in ExceptionsTrain
 IS_CANCELLED = 1
@@ -264,20 +148,6 @@ IS_OVERRIDE = 1
 IS_NOT_OVERRIDE = 0
 IS_STOPPING = 1
 IS_NOT_STOPPING = 0
-
-# Bus Types
-BUS_TYPE_COACH = "Coach"
-
-# LineCode
-# The code representing the bus line/route.
-# For example: 12 – this represents "Niagara Falls"
-BUS_ROUTE_NIAGARA = 12
-
-# Route Number
-#
-# Route Number 12B vs. Line Code 12.
-# When the Route Number is the same as the Line Code, a normal route was taken.
-# When the Route Number includes a letter this shows there was a change to the
 
 # Directions
 NORTH = "N"

@@ -3,6 +3,8 @@ from argparse import ArgumentParser
 import json
 
 import go_api
+import go_train
+import go_bus
 
 # Parse the command line arguments
 def get_arguments():
@@ -18,8 +20,14 @@ def get_arguments():
     parser.add_argument("-s", "--stop", dest="stop", default="",
                         help="The stop you're interested in")
     
+    parser.add_argument("-d", "--direction", dest="direction", default="",
+                        help="The direction you want to go")
+    
     parser.add_argument("-v", "--vehicle", dest="vehicle", default="",
                         help="The vehicle you're interested in")
+
+    parser.add_argument("-c", "--config", action="store_true", default=False,
+                        help="Dump the configuration")
     
     args = parser.parse_args()
 
@@ -27,6 +35,10 @@ def get_arguments():
 
 args = get_arguments()
 key = args.key
+
+if args.config:
+    print(go_train.Lines)
+    print(go_bus.Stops)
 
 if args.stop:
     stop_code = args.stop
