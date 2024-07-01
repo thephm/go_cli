@@ -5,6 +5,11 @@ SERVICE_TRAIN = "T"
 TRAIN_STATION = "Train Station"
 TRAIN_AND_BUS_STATION = "Train & Bus Station"
 
+# Number of cars
+SIX_CARS = 6
+TEN_CARS = 10
+TWELVE_CARS = 12
+
 # -----------------------------------------------------------------------------
 # 
 # Lines

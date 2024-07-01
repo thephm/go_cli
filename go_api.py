@@ -4,7 +4,7 @@
 #
 # This is unofficial and unsupported, copied from here as at 2024-04-06:
 #
-# http://api.openmetrolinx.com/OpenDataAPI/Help/Index/en 
+# https://api.openmetrolinx.com/OpenDataAPI/Help/Index/en 
 # 
 # Do not contact anyone at Metrolinx or GO Transit with questions on this file.
 #
@@ -15,7 +15,7 @@
 import go_train
 import go_bus
 
-GO_API_BASE = "http://api.openmetrolinx.com/OpenDataAPI/api/V1/"
+GO_API_BASE = "https://api.openmetrolinx.com/OpenDataAPI/api/V1/"
 
 KEY_FIELD = "?key="
 
@@ -104,12 +104,12 @@ IS_NOT_MAJOR_STOP = 0 # Minor stop
 # BUS_STOP = "Bus Stop" - defined in `go_bus.py`
 # BUS_TERMINAL = "Bus Terminal" - defined in `go_bus.py`
 # CARPOOL_LOT = "Carpool Lot" - defined in `go_bus.py`
-GO_TERMINAL = "GO Terminal"
 # PARK_AND_RIDE = "Park & Ride" - defined in `go_bus.py`
-GO_PARK_AND_RIDE = "GO Park & Ride"
 # TRAIN_STATION = "Train Station" - defined in `go_stations.py`
-TICKET_AGENCY = "Ticket Agency"
 # TRAIN_AND_BUS_STATION = "Train & Bus Station" - defined in `go_stations.py` and `go_bus.py`
+GO_TERMINAL = "GO Terminal"
+GO_PARK_AND_RIDE = "GO Park & Ride"
+TICKET_AGENCY = "Ticket Agency"
 TICKET_AGENCY_AND_STOP = "Ticket Agency & Stop"
 TICKET_AGENCY_AND_TERMINAL = "Ticket Agency & Terminal"
 
@@ -166,11 +166,6 @@ LINE_DIRECTION_UNION_OUT = "Out"
 # Motion
 IN_MOTION = 0 # No, not moving
 NOT_IN_MOTION = 1 # Yes, moving
-
-# Number of cars
-SIX_CARS = 6
-TEN_CARS = 10
-TWELVE_CARS = 12
 
 # Fare Types
 FARE_ADULT = "Adult"
@@ -318,7 +313,7 @@ GO_API_SERVICE_AT_A_GLANCE_TRAINS = GO_API_SERVICE_AT_A_GLANCE + TRAINS + "/" + 
 
 GO_API_SCHEDULE = GO_API_BASE + SCHEDULE + "/"
 
-# A Journey’s lines (rail corridor and bus routes), trips, stops and transfers.
+# A Journeyï¿½s lines (rail corridor and bus routes), trips, stops and transfers.
 #
 # api/V1/Schedule/Journey/{Date}/{FromStopCode}/{ToStopCode}/{StartTime}/{MaxJourney}	
 #

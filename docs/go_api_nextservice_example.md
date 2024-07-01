@@ -1,7 +1,8 @@
+# Sample output from GO API
+
 `python3 go_cli.py -k #### -s AP`
 
-
-```
+```json
 {
 	'Metadata': {
 		'TimeStamp': '2024-04-07 19:47:35', 
@@ -315,3 +316,4 @@
 		}]
 	}
 }
+```
