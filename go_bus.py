@@ -13,12 +13,11 @@ TRAIN_AND_BUS_STATION = "Train & Bus Station"
 
 # LineCode
 # The code representing the bus line/route.
-# For example: 12 – this represents "Niagara Falls"
+# For example: 12 ï¿½ this represents "Niagara Falls"
 NiagaraBusRoute = {
     "number": 12,
     "stops": []
 }
-
 
 # Route Number
 #
