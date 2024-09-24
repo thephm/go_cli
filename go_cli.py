@@ -16,7 +16,6 @@ NEW_LINE = "\n"
 NEXT_SERVICE = "NextService"
 LINES = "Lines"
 
-
 # Parse the command line arguments
 def get_arguments():
 

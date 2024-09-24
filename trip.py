@@ -59,17 +59,6 @@ class Trip:
         output += "longitude: " +  str(self.longitude) + NEW_LINE
         return output
     
-    def get_direction(self):
-        if self.line.code == "LW":
-            if len(self.direction_code) == 5:  # `LW  `
-                direction = "Westbound"
-            else:
-                direction = "Eastbound"
-        else:
-            direction = self.line.code
-        return direction
-    
-    
     def concise_str(self):
         output = ""
         if self.computed_departure_time:
@@ -77,7 +66,7 @@ class Trip:
         else: 
             output += self.scheduled_departure_time
 
-        output += " " + self.get_direction()
+        output += " " + self.direction_name
 
         output += " on platform "
         if self.actual_platform:

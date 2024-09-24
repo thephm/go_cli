@@ -40,4 +40,18 @@ Option | Description
 1. https://data.ontario.ca/dataset/ontario-railway-network-orwn
 1. https://data.ontario.ca/dataset/ontario-road-network-road-net-element
 1. https://data.ontario.ca/dataset/go-train-stations
-1. 
+
+## GO GTFS to JSON
+
+Small tool to convert the one of the `.txt` files from within the GTFS ZIP to `.json` 
+
+```bash
+pip install requests pandas
+python3 gtfs_to_json.py -w ../../config
+```
+
+Option | Description
+---|---
+`-h` | Help
+`-u` | Source URL for the GTFS.zip file
+`-w` | Folder where to put the output file, default is `config`
