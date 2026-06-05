@@ -1,16 +1,10 @@
-# -----------------------------------------------------------------------------
-#
-# Constant strings for the endpoints of the GO API.
-#
-# This is unofficial and unsupported, copied from here as at 2024-04-06:
-#
-# https://api.openmetrolinx.com/OpenDataAPI/Help/Index/en 
-# 
-# Do not contact anyone at Metrolinx or GO Transit with questions on this file.
-#
-# All of the endpoints are for reading (GET), none for updating.
-#
-# -----------------------------------------------------------------------------
+"""Constant strings for GO API endpoints and related codes.
+
+This file is unofficial and was copied from the public API documentation:
+    https://api.openmetrolinx.com/OpenDataAPI/Help/Index/en
+
+The endpoints here are for read-only requests.
+"""
 
 import go_train
 import go_bus

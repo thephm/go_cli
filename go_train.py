@@ -1,11 +1,14 @@
-# Service Types
+"""Train-related constants, line metadata, and stop definitions.
+
+This module defines service and location type constants, train lengths, line
+names and codes, and station metadata used by the CLI and schedule helpers.
+"""
+
 SERVICE_TRAIN = "T"
 
-# Location type descriptions in "Stop" 
 TRAIN_STATION = "Train Station"
 TRAIN_AND_BUS_STATION = "Train & Bus Station"
 
-# Number of cars
 SIX_CARS = 6
 TEN_CARS = 10
 TWELVE_CARS = 12

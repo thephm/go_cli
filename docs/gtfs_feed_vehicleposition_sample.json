@@ -1,0 +1,372 @@
+{
+  "header": {
+    "gtfs_realtime_version": "1.0",
+    "incrementality": "FULL_DATASET",
+    "timestamp": 1728119603
+  },
+  "entity": [
+    {
+      "id": "20241005-18-18050",
+      "is_deleted": false,
+      "trip_update": null,
+      "vehicle": {
+        "trip": {
+          "trip_id": "20241005-18-18050",
+          "route_id": "08241224-18",
+          "direction_id": 0,
+          "start_time": "04:30:00",
+          "start_date": "20241005",
+          "schedule_relationship": "SCHEDULED"
+        },
+        "vehicle": {
+          "id": "8560",
+          "label": "18B - Union Station",
+          "license_plate": ""
+        },
+        "position": {
+          "latitude": 43.45622,
+          "longitude": -79.68217,
+          "bearing": 0.0,
+          "odometer": 0.0,
+          "speed": 0.0
+        },
+        "stop_id": "00181",
+        "current_status": "IN_TRANSIT_TO",
+        "timestamp": 1728119585,
+        "congestion_level": "UNKNOWN_CONGESTION_LEVEL",
+        "occupancy_status": "EMPTY"
+      },
+      "alert": null
+    },
+    {
+      "id": "20241005-18-18060",
+      "is_deleted": false,
+      "trip_update": null,
+      "vehicle": {
+        "trip": {
+          "trip_id": "20241005-18-18060",
+          "route_id": "08241224-18",
+          "direction_id": 0,
+          "start_time": "05:05:00",
+          "start_date": "20241005",
+          "schedule_relationship": "SCHEDULED"
+        },
+        "vehicle": {
+          "id": "8562",
+          "label": "18J - Union Station",
+          "license_plate": ""
+        },
+        "position": {
+          "latitude": 43.25292,
+          "longitude": -79.8701,
+          "bearing": 0.0,
+          "odometer": 0.0,
+          "speed": 0.0
+        },
+        "stop_id": "00141",
+        "current_status": "INCOMING_AT",
+        "timestamp": 1728119585,
+        "congestion_level": "UNKNOWN_CONGESTION_LEVEL",
+        "occupancy_status": "EMPTY"
+      },
+      "alert": null
+    },
+    {
+      "id": "20241005-21-21020",
+      "is_deleted": false,
+      "trip_update": null,
+      "vehicle": {
+        "trip": {
+          "trip_id": "20241005-21-21020",
+          "route_id": "08241224-21",
+          "direction_id": 0,
+          "start_time": "04:55:00",
+          "start_date": "20241005",
+          "schedule_relationship": "SCHEDULED"
+        },
+        "vehicle": {
+          "id": "8367",
+          "label": "21F - Union Station",
+          "license_plate": ""
+        },
+        "position": {
+          "latitude": 43.593483,
+          "longitude": -79.7560654,
+          "bearing": 0.0,
+          "odometer": 0.0,
+          "speed": 0.0
+        },
+        "stop_id": "00129",
+        "current_status": "IN_TRANSIT_TO",
+        "timestamp": 1728119585,
+        "congestion_level": "UNKNOWN_CONGESTION_LEVEL",
+        "occupancy_status": "EMPTY"
+      },
+      "alert": null
+    },
+    {
+      "id": "20241005-25-25030",
+      "is_deleted": false,
+      "trip_update": null,
+      "vehicle": {
+        "trip": {
+          "trip_id": "20241005-25-25030",
+          "route_id": "08241224-25",
+          "direction_id": 0,
+          "start_time": "05:00:00",
+          "start_date": "20241005",
+          "schedule_relationship": "SCHEDULED"
+        },
+        "vehicle": {
+          "id": "8513",
+          "label": "25  - Square One",
+          "license_plate": ""
+        },
+        "position": {
+          "latitude": 43.45423,
+          "longitude": -80.46858,
+          "bearing": 0.0,
+          "odometer": 0.0,
+          "speed": 0.0
+        },
+        "stop_id": "02184",
+        "current_status": "IN_TRANSIT_TO",
+        "timestamp": 1728119585,
+        "congestion_level": "UNKNOWN_CONGESTION_LEVEL",
+        "occupancy_status": "EMPTY"
+      },
+      "alert": null
+    },
+    {
+      "id": "20241005-31-31010",
+      "is_deleted": false,
+      "trip_update": null,
+      "vehicle": {
+        "trip": {
+          "trip_id": "20241005-31-31010",
+          "route_id": "08241224-31",
+          "direction_id": 0,
+          "start_time": "04:55:00",
+          "start_date": "20241005",
+          "schedule_relationship": "SCHEDULED"
+        },
+        "vehicle": {
+          "id": "8404",
+          "label": "31E - Union Station",
+          "license_plate": ""
+        },
+        "position": {
+          "latitude": 43.6809845,
+          "longitude": -79.81405,
+          "bearing": 0.0,
+          "odometer": 0.0,
+          "speed": 0.0
+        },
+        "stop_id": "00942",
+        "current_status": "INCOMING_AT",
+        "timestamp": 1728119585,
+        "congestion_level": "UNKNOWN_CONGESTION_LEVEL",
+        "occupancy_status": "EMPTY"
+      },
+      "alert": null
+    },
+    {
+      "id": "20241005-40-40021",
+      "is_deleted": false,
+      "trip_update": null,
+      "vehicle": {
+        "trip": {
+          "trip_id": "20241005-40-40021",
+          "route_id": "08241224-40",
+          "direction_id": 1,
+          "start_time": "04:05:00",
+          "start_date": "20241005",
+          "schedule_relationship": "SCHEDULED"
+        },
+        "vehicle": {
+          "id": "8335",
+          "label": "40 - Hamilton GO",
+          "license_plate": ""
+        },
+        "position": {
+          "latitude": 43.50625,
+          "longitude": -79.74435,
+          "bearing": 0.0,
+          "odometer": 0.0,
+          "speed": 0.0
+        },
+        "stop_id": "00139",
+        "current_status": "IN_TRANSIT_TO",
+        "timestamp": 1728119565,
+        "congestion_level": "UNKNOWN_CONGESTION_LEVEL",
+        "occupancy_status": "EMPTY"
+      },
+      "alert": null
+    },
+    {
+      "id": "20241005-40-40040",
+      "is_deleted": false,
+      "trip_update": null,
+      "vehicle": {
+        "trip": {
+          "trip_id": "20241005-40-40040",
+          "route_id": "08241224-40",
+          "direction_id": 0,
+          "start_time": "05:15:00",
+          "start_date": "20241005",
+          "schedule_relationship": "SCHEDULED"
+        },
+        "vehicle": {
+          "id": "8333",
+          "label": "40 - Richmond Hill Ctr",
+          "license_plate": ""
+        },
+        "position": {
+          "latitude": 43.25292,
+          "longitude": -79.86945,
+          "bearing": 0.0,
+          "odometer": 0.0,
+          "speed": 0.0
+        },
+        "stop_id": "00141",
+        "current_status": "INCOMING_AT",
+        "timestamp": 1728119565,
+        "congestion_level": "UNKNOWN_CONGESTION_LEVEL",
+        "occupancy_status": "EMPTY"
+      },
+      "alert": null
+    },
+    {
+      "id": "20241005-40-40091",
+      "is_deleted": false,
+      "trip_update": null,
+      "vehicle": {
+        "trip": {
+          "trip_id": "20241005-40-40091",
+          "route_id": "08241224-40",
+          "direction_id": 1,
+          "start_time": "06:05:00",
+          "start_date": "20241005",
+          "schedule_relationship": "SCHEDULED"
+        },
+        "vehicle": {
+          "id": "8514",
+          "label": "40 - Hamilton GO",
+          "license_plate": ""
+        },
+        "position": {
+          "latitude": 43.83967,
+          "longitude": -79.42693,
+          "bearing": 0.0,
+          "odometer": 0.0,
+          "speed": 0.0
+        },
+        "stop_id": "00350",
+        "current_status": "IN_TRANSIT_TO",
+        "timestamp": 1728119585,
+        "congestion_level": "UNKNOWN_CONGESTION_LEVEL",
+        "occupancy_status": "EMPTY"
+      },
+      "alert": null
+    },
+    {
+      "id": "20241005-47-47090",
+      "is_deleted": false,
+      "trip_update": null,
+      "vehicle": {
+        "trip": {
+          "trip_id": "20241005-47-47090",
+          "route_id": "08241224-47",
+          "direction_id": 0,
+          "start_time": "04:40:00",
+          "start_date": "20241005",
+          "schedule_relationship": "SCHEDULED"
+        },
+        "vehicle": {
+          "id": "8438",
+          "label": "47  - Hwy. 407 Bus Term",
+          "license_plate": ""
+        },
+        "position": {
+          "latitude": 43.3779678,
+          "longitude": -79.83276,
+          "bearing": 0.0,
+          "odometer": 0.0,
+          "speed": 0.0
+        },
+        "stop_id": "00139",
+        "current_status": "INCOMING_AT",
+        "timestamp": 1728119585,
+        "congestion_level": "UNKNOWN_CONGESTION_LEVEL",
+        "occupancy_status": "EMPTY"
+      },
+      "alert": null
+    },
+    {
+      "id": "20241005-94-94020",
+      "is_deleted": false,
+      "trip_update": null,
+      "vehicle": {
+        "trip": {
+          "trip_id": "20241005-94-94020",
+          "route_id": "08241224-94",
+          "direction_id": 1,
+          "start_time": "04:25:00",
+          "start_date": "20241005",
+          "schedule_relationship": "SCHEDULED"
+        },
+        "vehicle": {
+          "id": "2499",
+          "label": "94  - Square One",
+          "license_plate": ""
+        },
+        "position": {
+          "latitude": 43.7268,
+          "longitude": -79.4651,
+          "bearing": 0.0,
+          "odometer": 0.0,
+          "speed": 0.0
+        },
+        "stop_id": "00020",
+        "current_status": "INCOMING_AT",
+        "timestamp": 1728119585,
+        "congestion_level": "UNKNOWN_CONGESTION_LEVEL",
+        "occupancy_status": "EMPTY"
+      },
+      "alert": null
+    },
+    {
+      "id": "20241005-94-94040",
+      "is_deleted": false,
+      "trip_update": null,
+      "vehicle": {
+        "trip": {
+          "trip_id": "20241005-94-94040",
+          "route_id": "08241224-94",
+          "direction_id": 1,
+          "start_time": "05:25:00",
+          "start_date": "20241005",
+          "schedule_relationship": "SCHEDULED"
+        },
+        "vehicle": {
+          "id": "8350",
+          "label": "94  - Square One",
+          "license_plate": ""
+        },
+        "position": {
+          "latitude": 43.83108,
+          "longitude": -79.0838,
+          "bearing": 0.0,
+          "odometer": 0.0,
+          "speed": 0.0
+        },
+        "stop_id": "00147",
+        "current_status": "IN_TRANSIT_TO",
+        "timestamp": 1728117625,
+        "congestion_level": "UNKNOWN_CONGESTION_LEVEL",
+        "occupancy_status": "EMPTY"
+      },
+      "alert": null
+    }
+  ]
+}

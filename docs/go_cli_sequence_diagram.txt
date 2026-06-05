@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant go_cli
+    participant Stop
+    participant Trip
+    participant go_api
+
+    go_cli->>+Stop: Create Stop instance
+    go_cli->>+Trip: Create Trip instance
+    go_cli->>Stop: Set code from arguments
+    go_cli->>Trip: Set stop code
+    go_cli->>go_api: Call next_service with key
+    go_api-->>Trip: Return next service details
+    Trip->>Stop: Parse response
+    Stop-->>go_cli: Display stop information

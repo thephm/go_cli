@@ -1,19 +1,22 @@
-# Service Types
+"""Bus-related constants and stop metadata.
+
+This module defines service and location type constants plus route and stop
+metadata used by the CLI.
+
+`LineCode` represents the bus line or route. For example, `12` represents the
+Niagara Falls route.
+"""
+
 SERVICE_BUS = "B"
 
-# Bus Types
 BUS_TYPE_COACH = "Coach"
 
-# Location type descriptions in "Stop" 
 BUS_STOP = "Bus Stop"
 BUS_TERMINAL = "Bus Terminal"
 CARPOOL_LOT = "Carpool Lot"
 PARK_AND_RIDE = "Park & Ride"
 TRAIN_AND_BUS_STATION = "Train & Bus Station"
 
-# LineCode
-# The code representing the bus line/route.
-# For example: 12 � this represents "Niagara Falls"
 NiagaraBusRoute = {
     "number": 12,
     "stops": []

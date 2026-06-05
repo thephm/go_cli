@@ -16,8 +16,8 @@ NEW_LINE = "\n"
 NEXT_SERVICE = "NextService"
 LINES = "Lines"
 
-# Parse the command line arguments
 def get_arguments():
+    """Parse the command line arguments."""
 
     parser = ArgumentParser()
 
@@ -46,31 +46,30 @@ def get_arguments():
 args = get_arguments()
 key = args.key
 
-# -----------------------------------------------------------------------------
-# 
-# Example:
-#
-#  {
-#     'StopCode': 'AP', 
-#     'LineCode': 'LW', 
-#     'LineName': 'Lakeshore West', 
-#     'ServiceType': 'T',               # SERVICE_TRAIN
-#     'DirectionCode': 'LW   ',         # 'LW' Westbound, 'LW   ' Eastbound!
-#     'DirectionName': 'LW - West Harbour GO', 
-#     'ScheduledDepartureTime': '2024-09-22 20:22:00', 
-#     'ComputedDepartureTime': '2024-09-22 20:22:00', 
-#     'DepartureStatus': 'E', 
-#     'ScheduledPlatform': '1', 
-#     'ActualPlatform': '', 
-#     'TripOrder': 1, 
-#     'TripNumber': '1731', 
-#     'UpdateTime': '2024-09-22 20:19:45', 
-#     'Status': 'M', 
-#     'Latitude': 43.388724, 
-#     'Longitude': -79.751464
-#   }, 
-# -----------------------------------------------------------------------------
 def parse_response(json_trips):
+    """Parse a NextService API response into trip objects.
+
+    Example trip entry:
+        {
+            'StopCode': 'AP',
+            'LineCode': 'LW',
+            'LineName': 'Lakeshore West',
+            'ServiceType': 'T',
+            'DirectionCode': 'LW   ',
+            'DirectionName': 'LW - West Harbour GO',
+            'ScheduledDepartureTime': '2024-09-22 20:22:00',
+            'ComputedDepartureTime': '2024-09-22 20:22:00',
+            'DepartureStatus': 'E',
+            'ScheduledPlatform': '1',
+            'ActualPlatform': '',
+            'TripOrder': 1,
+            'TripNumber': '1731',
+            'UpdateTime': '2024-09-22 20:19:45',
+            'Status': 'M',
+            'Latitude': 43.388724,
+            'Longitude': -79.751464,
+        }
+    """
     for tripFields in json_trips[NEXT_SERVICE][LINES]:
         this_trip = trip.Trip()
         this_trip.stop_code = tripFields[stop.CODE]

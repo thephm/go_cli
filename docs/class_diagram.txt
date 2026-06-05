@@ -1,0 +1,66 @@
+classDiagram
+	class Line {
+		+String code
+		+String name
+		+String service_type
+		+List stops
+	}
+  
+	class Location {
+		+String street_number
+		+String street_name
+		+String city
+		+String intersection
+		+int zone_code
+		+float longitude
+		+float latitude
+		+String driving_directions
+		+List facilities
+		+List parking
+	}
+
+	class Stop {
+		+String code
+		+String name
+		+String name_fr
+		+Line line
+		+Location location
+		+boolean bus
+		+boolean train
+		+String boarding_info
+		+String ticket_sales
+	}
+	
+	class TripStop {
+		+String number
+		+String order
+		+String direction_code
+		+String direction_name
+		+String scheduled_departure_time
+		+String computed_departure_time
+		+String scheduled_track
+		+String actual_track
+		+String scheduled_platform
+		+String actual_platform
+		+String update_time
+		+String status
+		+float latitude
+		+float longitude
+	}
+
+	class Facility {
+		+String code
+		+String description
+	}
+	
+	class Parking {
+		+String name
+		+int park_spots
+		+String type
+	}
+
+	Line "1" -- "*" Stop : contains
+	Stop "1" -- "1" Location : has
+	Location "1" -- "*" Facility : has
+	Location "1" -- "*" Parking : has
+	Stop <|-- TripStop : extends

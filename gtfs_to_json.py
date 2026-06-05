@@ -1,4 +1,4 @@
-# Loads the GO-GTFS.zip file and creates `.py` files for stops
+"""Load the GO-GTFS.zip file and create JSON output files."""
 
 from argparse import ArgumentParser
 import requests
@@ -8,8 +8,8 @@ import pandas as pd
 import json
 import os
 
-# parse the command line arguments
 def get_arguments():
+    """Parse the command line arguments."""
 
     parser = ArgumentParser()
 
