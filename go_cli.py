@@ -102,11 +102,33 @@ def parse_response(json_trips):
 
         print(this_trip.concise_str() + NEW_LINE)
 
-if args.config:
-    print(go_train.Lines)
-    print(go_bus.Stops)
+def get_stop_config(stop_code):
+    """Return configured train stations and bus stops matching a stop code."""
+    stop_code = stop_code.upper()
+    train_stop_slug = "un" if stop_code == go_train.UNION_STATION_STOP_CODE else stop_code.lower()
 
-if args.stop:
+    train_stops = [
+        station
+        for train_line in go_train.Lines
+        for station in train_line["stops"]
+        if station["url"].rstrip("/").rsplit("/", 1)[-1].lower() == train_stop_slug
+    ]
+    if stop_code == go_train.UNION_STATION_STOP_CODE:
+        train_stops.append(go_train.UnionStation)
+    bus_stops = [
+        bus_stop for bus_stop in go_bus.Stops + [go_bus.union_station_bus_terminal]
+        if bus_stop["code"].upper() == stop_code
+    ]
+    return train_stops + bus_stops
+
+if args.config:
+    if args.stop:
+        print(get_stop_config(args.stop))
+    else:
+        print(go_train.Lines)
+        print(go_bus.Stops)
+
+if args.stop and not args.config:
     stop_code = args.stop
 
     api_url = go_api.GO_API_NEXT_SERVICE + str(stop_code) + go_api.KEY_FIELD + str(key)
